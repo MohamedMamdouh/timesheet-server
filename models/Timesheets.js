@@ -4,21 +4,22 @@ const Schema = mongoose.Schema;
 const TimesheetSchema = new Schema({
   project: {
     type: Schema.Types.ObjectId,
-    ref: 'Projects'
+    ref: "Projects",
   },
   user: {
     type: Schema.Types.ObjectId,
-    ref: 'Users'
-   },
+    ref: "Users",
+  },
   date: Date,
-  timeSpent: Number,
+  timeSpent: String,
   approvedBy: {
     type: Schema.Types.ObjectId,
-    ref: 'Users'
-   },
+    ref: "Users",
+  },
   ApprovedDate: Date,
   month: String,
   status: String,
+  year: String,
 });
 
 module.exports = mongoose.model("Timesheets", TimesheetSchema);
