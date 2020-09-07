@@ -13,10 +13,12 @@ app.use(bodyParser.urlencoded({ extended: true }));
 
 //Routes
 const usersRouter = require("./routes/users");
-const projectssRouter = require("./routes/projects");
+const projectsRouter = require("./routes/projects");
+const timelogs = require("./routes/timelogs");
 
 app.use("/users", usersRouter);
-app.use("/projects", projectssRouter);
+app.use("/projects", projectsRouter);
+app.use("/timelogs", timelogs);
 
 //App listening port
 app.listen(3000, () => console.log("App listen on port: 3000"));
