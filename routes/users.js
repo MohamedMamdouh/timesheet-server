@@ -6,9 +6,18 @@ const Projects = require("../models/Projects");
 router.get("/", async (req, res) => {
   try {
     const users = await Users.find();
-    res.status(500).json(users);
+    res.status(200).json(users);
   } catch (e) {
-    res.status(200).json({ message: e });
+    res.status(500).json({ message: e });
+  }
+});
+
+router.post("/getuserbyid", async (req, res) => {
+  try {
+    const user = await Users.findById(req.body.userId);
+    res.status(200).json(user);
+  } catch (e) {
+    res.status(500).json({ message: e });
   }
 });
 
@@ -94,9 +103,9 @@ router.post("/update", async (req, res) => {
     } else {
       try {
         const user = await Users.findById(req.body.id);
-        res.status(500).json(user);
+        res.status(200).json(user);
       } catch (e) {
-        res.status(200).json({ message: e });
+        res.status(500).json({ message: e });
       }
     }
   });
